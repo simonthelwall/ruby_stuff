@@ -31,7 +31,9 @@ b.each do
 	puts "Downloading file: #{link}"
 	c = link.gsub(/http:.*uk\//,"")
 	puts c
-	File.open('#{c]',"wb") do |file|
-		file.write open('#{link}').read
+	File.open(c,"wb") do |file|
+		open(link).read do |uri|
+			file.write{uri}
+		end
 	end
 end
